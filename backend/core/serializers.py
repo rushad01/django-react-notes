@@ -15,10 +15,7 @@ class CatagorySerializer(serializers.ModelSerializer):
 
 
 class NotesSerializer(serializers.ModelSerializer):
-    language = serializers.StringRelatedField(many=False)
-    catagory = serializers.StringRelatedField(many=False)
-
     class Meta:
         model = Notes
         fields = ['id', 'title', 'language',
-                  'catagory', 'topic', 'note', 'updated_at']
+                  'catagory', 'note', 'updated_at']

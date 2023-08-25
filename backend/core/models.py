@@ -21,10 +21,9 @@ class Catagory(models.Model):
 class Notes(models.Model):
     title = models.CharField(max_length=250,default="No title")
     language = models.ForeignKey(
-        Language, on_delete=models.SET_NULL, blank=True, null=True)
+        Language,related_name='language', on_delete=models.SET_NULL, blank=True, null=True)
     catagory = models.ForeignKey(
-        Catagory, on_delete=models.SET_NULL, blank=True, null=True)
-    topic = models.CharField(max_length=255,default="Not Specified")
+        Catagory,related_name='catagory', on_delete=models.SET_NULL, blank=True, null=True)
     note = models.TextField(default="You didn't add any note for this topic")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
